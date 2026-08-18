@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>A Little Question ❤️</title>
+<title>System Breach</title>
 
 <style>
 * {
@@ -13,407 +12,232 @@
 
 body {
     margin: 0;
+    background: #000;
+    color: #00ff66;
+    font-family: "Courier New", monospace;
     min-height: 100vh;
-    display: flex;
+    overflow: hidden;
+}
+
+#terminal {
+    padding: 20px;
+    height: 100vh;
+    overflow: hidden;
+    text-shadow: 0 0 8px #00ff66;
+}
+
+.line {
+    margin: 7px 0;
+    font-size: 14px;
+}
+
+.warning {
+    color: #ff3333;
+    text-shadow: 0 0 8px red;
+}
+
+.yellow {
+    color: #ffff00;
+}
+
+.progressBox {
+    width: 100%;
+    height: 18px;
+    border: 1px solid #00ff66;
+    margin: 12px 0;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: #00ff66;
+    box-shadow: 0 0 12px #00ff66;
+}
+
+#reveal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle, #111 0%, #000 70%);
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    color: white;
     text-align: center;
+    padding: 25px;
 }
 
-.container {
-    width: 90%;
-    max-width: 400px;
-    position: relative;
+.card {
+    border: 1px solid #00ff66;
+    padding: 35px 20px;
+    max-width: 450px;
+    box-shadow: 0 0 30px #00ff66;
+    animation: pulse 1.5s infinite alternate;
 }
 
-.heart {
-    font-size: 90px;
-    animation: bounce 1.2s infinite;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,.2));
+.card h1 {
+    color: #ff3366;
+    font-family: Arial, sans-serif;
+    font-size: 38px;
 }
 
-@keyframes bounce {
-    0%,100% {
-        transform: translateY(0) scale(1);
-    }
-
-    50% {
-        transform: translateY(-25px) scale(1.08);
-    }
-}
-
-h1 {
-    font-size: 30px;
-    margin: 15px 0;
-}
-
-p {
+.card p {
+    color: white;
+    font-family: Arial, sans-serif;
     font-size: 18px;
-    line-height: 1.5;
-}
-
-.buttons {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    line-height: 1.6;
 }
 
 button {
-    border: none;
-    padding: 13px 25px;
-    border-radius: 30px;
-    font-size: 17px;
-    font-weight: bold;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: transparent;
+    color: #00ff66;
+    border: 1px solid #00ff66;
+    font-family: monospace;
     cursor: pointer;
-    transition: .25s;
 }
 
-#yes {
-    background: white;
-    color: #ff477e;
-}
-
-#no {
-    background: rgba(255,255,255,.25);
-    color: white;
-}
-
-/* BACK BUTTON */
-
-.back {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-
-    width: 45px;
-    height: 45px;
-
-    padding: 0;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.25);
-    color: white;
-
-    font-size: 25px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    backdrop-filter: blur(8px);
-
-    box-shadow: 0 5px 15px rgba(0,0,0,.15);
-
-    z-index: 10;
-}
-
-.back:hover {
-    transform: scale(1.1);
-    background: rgba(255,255,255,.4);
-}
-
-.hidden {
-    display: none;
-}
-
-.message {
-    animation: appear .7s ease;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: scale(.7);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.floating-heart {
-    position: fixed;
-    bottom: -30px;
-    font-size: 25px;
-    animation: float 5s linear forwards;
-    pointer-events: none;
-}
-
-@keyframes float {
-
-    from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-#proposal h2 {
-    font-size: 28px;
-}
-
-.love {
-    font-size: 45px;
-    animation: pulse 1s infinite;
+button:hover {
+    background: #00ff66;
+    color: black;
 }
 
 @keyframes pulse {
-
-    50% {
-        transform: scale(1.25);
-    }
+    from { transform: scale(1); }
+    to { transform: scale(1.03); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACK BUTTON -->
-<button id="backBtn" class="back hidden">←</button>
+<div id="terminal"></div>
 
-
-<div class="container">
-
-    <!-- FIRST PAGE -->
-
-    <div id="question">
-
-        <div class="heart">❤️</div>
-
-        <h1>Hey Noone.. 👀❤️</h1>
+<div id="reveal">
+    <div class="card">
+        <div style="font-size:55px;">❤️</div>
+        <h1>SYSTEM COMPROMISED</h1>
 
         <p>
-            I have a tiny question for you...
+            Congratulations.<br><br>
+            Your device wasn't actually hacked...
+        </p>
+
+        <p style="color:#00ff66;">
+            I hacked your heart instead. 😏❤️
+        </p>
+
+        <p>
+            And unfortunately for you...
             <br>
-            Please answer honestly 😌
+            there's no antivirus for that. 😂
         </p>
 
-        <h2>Do you love me? ❤️</h2>
-
-        <div class="buttons">
-
-            <button id="yes">
-                YES ❤️
-            </button>
-
-            <button id="no">
-                NO 😏
-            </button>
-
-        </div>
-
+        <button onclick="location.reload()">RUN AGAIN</button>
     </div>
-
-
-    <!-- PROPOSAL PAGE -->
-
-    <div id="proposal" class="hidden message">
-
-        <div class="love">
-            💖
-        </div>
-
-        <h1>
-            I knew it! 😭❤️
-        </h1>
-
-        <p>
-            So since you love me...
-            <br><br>
-            I have one more question.
-        </p>
-
-        <h2>
-            Will you be mine? 💍❤️
-        </h2>
-
-        <button id="finalYes">
-            YES, I WILL ❤️
-        </button>
-
-    </div>
-
-
-    <!-- FINAL PAGE -->
-
-    <div id="final" class="hidden message">
-
-        <div class="love">
-            💍❤️
-        </div>
-
-        <h1>
-            YAAAAAY! 🥹❤️
-        </h1>
-
-        <p>
-            You just made me the happiest person alive.
-            <br><br>
-            I love you. ❤️
-        </p>
-
-    </div>
-
 </div>
 
-
 <script>
-
-const yes = document.getElementById("yes");
-const no = document.getElementById("no");
-
-const question = document.getElementById("question");
-const proposal = document.getElementById("proposal");
-const final = document.getElementById("final");
-
-const finalYes = document.getElementById("finalYes");
-
-const backBtn = document.getElementById("backBtn");
-
-let noCount = 0;
-
-
-/* NO BUTTON */
-
-no.addEventListener("click", function() {
-
-    noCount++;
-
-    if (noCount === 1) {
-
-        no.innerText = "Are you sure? 👀";
-
-    }
-
-    else if (noCount === 2) {
-
-        no.innerText = "Think again 😭";
-
-    }
-
-    else if (noCount === 3) {
-
-        no.innerText = "Really? 🥺";
-
-    }
-
-    else {
-
-        no.innerText = "You can't escape ❤️";
-
-        no.style.position = "fixed";
-
-        no.style.left =
-            Math.random() * (window.innerWidth - 150) + "px";
-
-        no.style.top =
-            Math.random() * (window.innerHeight - 70) + "px";
-
-    }
-
-});
-
-
-/* YES BUTTON */
-
-yes.addEventListener("click", function() {
-
-    question.classList.add("hidden");
-
-    proposal.classList.remove("hidden");
-
-    backBtn.classList.remove("hidden");
-
-    createHearts(15);
-
-});
-
-
-/* BACK BUTTON */
-
-backBtn.addEventListener("click", function() {
-
-    proposal.classList.add("hidden");
-
-    final.classList.add("hidden");
-
-    question.classList.remove("hidden");
-
-    backBtn.classList.add("hidden");
-
-    // Reset NO button
-    noCount = 0;
-
-    no.innerText = "NO 😏";
-
-    no.style.position = "";
-    no.style.left = "";
-    no.style.top = "";
-
-});
-
-
-/* FINAL YES */
-
-finalYes.addEventListener("click", function() {
-
-    proposal.classList.add("hidden");
-
-    final.classList.remove("hidden");
-
-    createHearts(40);
-
-});
-
-
-/* FLOATING HEARTS */
-
-function createHearts(amount) {
-
-    for (let i = 0; i < amount; i++) {
-
-        const heart =
-            document.createElement("div");
-
-        heart.className =
-            "floating-heart";
-
-        heart.innerHTML =
-            ["❤️","💕","💖","💗","💘"]
-            [Math.floor(Math.random() * 5)];
-
-        heart.style.left =
-            Math.random() * 100 + "vw";
-
-        heart.style.animationDuration =
-            (3 + Math.random() * 3) + "s";
-
-        heart.style.fontSize =
-            (18 + Math.random() * 25) + "px";
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-
-            heart.remove();
-
-        }, 6000);
-
-    }
-
+const terminal = document.getElementById("terminal");
+
+const messages = [
+    ["Initializing secure connection...", ""],
+    ["Connecting to remote server...", ""],
+    ["Connection established.", ""],
+    ["Scanning target...", "yellow"],
+    ["Finding vulnerable ports...", ""],
+    ["Port 443 OPEN", ""],
+    ["Port 8080 OPEN", ""],
+    ["Bypassing firewall...", "yellow"],
+    ["Firewall bypassed.", ""],
+    ["Accessing encrypted database...", ""],
+    ["Decrypting files...", ""],
+    ["Downloading secret files...", ""],
+    ["Analyzing personal data...", "warning"],
+    ["ERROR: Too much cuteness detected.", "warning"],
+    ["Attempting emergency override...", "yellow"],
+    ["Override successful.", ""],
+    ["Searching for weakness...", ""],
+    ["WEAKNESS FOUND.", "warning"],
+    ["Target vulnerability: HEART ❤️", "warning"],
+    ["Injecting LOVE.exe...", ""]
+];
+
+let index = 0;
+
+function addLine(text, type = "") {
+    const div = document.createElement("div");
+    div.className = "line " + type;
+    div.textContent = "> " + text;
+    terminal.appendChild(div);
+
+    terminal.scrollTop = terminal.scrollHeight;
 }
 
+function progressAnimation(callback) {
+    const box = document.createElement("div");
+    box.className = "progressBox";
+
+    const bar = document.createElement("div");
+    bar.className = "progress";
+
+    box.appendChild(bar);
+    terminal.appendChild(box);
+
+    let percent = 0;
+
+    const timer = setInterval(() => {
+        percent += Math.floor(Math.random() * 8) + 3;
+
+        if (percent >= 100) {
+            percent = 100;
+            clearInterval(timer);
+            setTimeout(callback, 500);
+        }
+
+        bar.style.width = percent + "%";
+    }, 150);
+}
+
+function run() {
+    if (index >= messages.length) {
+        setTimeout(finalSequence, 800);
+        return;
+    }
+
+    const [text, type] = messages[index];
+
+    addLine(text, type);
+    index++;
+
+    if (
+        text.includes("Decrypting") ||
+        text.includes("Downloading") ||
+        text.includes("Injecting")
+    ) {
+        progressAnimation(run);
+    } else {
+        setTimeout(run, Math.random() * 500 + 350);
+    }
+}
+
+function finalSequence() {
+    addLine("");
+    addLine("FINALIZING OPERATION...", "yellow");
+
+    setTimeout(() => {
+        addLine("ACCESS GRANTED ❤️", "");
+    }, 1000);
+
+    setTimeout(() => {
+        addLine("TARGET HEART SUCCESSFULLY HACKED.", "warning");
+    }, 2200);
+
+    setTimeout(() => {
+        document.getElementById("reveal").style.display = "flex";
+    }, 3500);
+}
+
+run();
 </script>
 
 </body>
